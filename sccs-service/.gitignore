@@ -1,0 +1,6 @@
+/target/
+/.project
+/.classpath
+/gradlew
+/gradlew.bat
+/build.gradle
