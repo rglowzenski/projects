@@ -27,17 +27,17 @@ import org.springframework.cloud.context.refresh.ContextRefresher;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import rglowzenski.projects.bingebox.user.MessageRestController;
+import rglowzenski.projects.bingebox.user.controller.UserController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ConfigClientApplicationTest {
+public class ApplicationTest {
 
     @Autowired
     private ConfigurableEnvironment environment;
 
     @Autowired
-    private MessageRestController controller;
+    private UserController controller;
 
     @Autowired
     private ContextRefresher refresher;
