@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: bingebox
+       MYSQL_DATABASE: bingebox
+       MYSQL_USER: bingebox
+       MYSQL_PASSWORD: bingebox
+
+   sccs:
+     image: rglowzenski/sccs-service:latest
+     ports:
+       - "8888:8888"
+     restart: always
+     environment:
+       server.port: 8888
+
+   eureka:
+     image: rglowzenski/eureka-service:latest
+     ports:
+       - "8765:8765"
+     restart: always
+     environment:
+       server.port: 8765
+
+   bingebox:
+     depends_on:
+       - db
+       - sccs
+       - eureka
+     image: rglowzenski/bingebox-user-service:latest
+     ports:
+       - "8821:8821"
+     restart: always
+     environment:
+       server.port: 8821
+       BINGEBOX_DB_HOST: db:3306
+       BINGEBOX_DB_PASSWORD: bingebox
+volumes:
+    db_data:
