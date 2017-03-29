@@ -1,0 +1,15 @@
+message: Hello Dev!
+spring:
+    jpa:
+        database: MYSQL
+        hibernate:
+            ddl-auto: validate
+
+    datasource:
+        url: jdbc:mysql://mysql:3306/bingebox
+        username: bingebox
+        password: bingebox
+        driver-class-name: com.mysql.jdbc.Driver
+       
+flyway:
+  locations: db/migration/mysql
