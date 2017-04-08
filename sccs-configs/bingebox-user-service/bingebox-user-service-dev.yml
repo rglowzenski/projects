@@ -6,7 +6,7 @@ spring:
             ddl-auto: validate
 
     datasource:
-        url: jdbc:mysql://mysql:3306/bingebox
+        url: jdbc:mysql://localhost:3306/bingebox
         username: bingebox
         password: bingebox
         driver-class-name: com.mysql.jdbc.Driver
